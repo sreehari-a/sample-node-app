@@ -13,10 +13,14 @@ const forecast = (latitude, longtitude, callback) => {
         current: {
           temperature,
           feelslike,
+          humidity,
           weather_descriptions: [description] = [],
         } = {},
       } = response.body;
-      callback(null, `${description}. It is currently ${temperature} degrees out. It feels like ${feelslike} degrees out.`)
+      callback(
+        null,
+        `${description}. It is currently ${temperature} degrees out. It feels like ${feelslike} degrees out with a humidity of ${humidity}%.`
+      );
     }
   });
 };
